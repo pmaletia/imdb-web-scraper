@@ -27,45 +27,41 @@ This project is a Django-based web scraper that extracts movie information from 
 ## 📂 Project Structure
 
 imdb-web-scraper/
-├── web-scraper/                  # Main Django project directory
-│   ├── imdb_ratings/             # Main app for scraping and movie management
-│   │   ├── migrations/           # Database migrations
-│   │   │   ├── __init__.py
-│   │   │   └── 0001_initial.py   # Initial migration file
-│   │   ├── templates/            # HTML templates for the app
-│   │   │   └── imdb_ratings/
-│   │   │       ├── movie_list.html  # Template for displaying movies
-│   │   │       ├── scrape_form.html # Template for the scrape form
-│   │   ├── static/               # Static files (CSS, JS, etc.)
-│   │   │   ├── css/
-│   │   │   │   └── styles.css    # Custom styles for the app
-│   │   │   └── js/
-│   │   │       └── scripts.js    # Custom JavaScript for the app
-│   │   ├── management/           # Custom management commands
-│   │   │   ├── commands/
-│   │   │   │   ├── __init__.py
-│   │   │   │   └── clear_movies.py  # Command to clear all movies from the database
-│   │   ├── __init__.py
-│   │   ├── admin.py              # Admin configuration
-│   │   ├── apps.py               # App configuration
-│   │   ├── models.py             # Database models (e.g., Movie model)
-│   │   ├── scraper.py            # Web scraping logic
-│   │   ├── serializer.py         # API serializers
-│   │   ├── tests.py              # Unit tests for the app
-│   │   ├── urls.py               # App-specific URL routing
-│   │   ├── views.py              # Views for web and API functionality
-│   │   └── forms.py              # Django forms (e.g., ScrapeForm)
-│   ├── scraper_site/             # Django project configuration
-│   │   ├── __init__.py
-│   │   ├── asgi.py               # ASGI configuration
-│   │   ├── settings.py           # Project settings
-│   │   ├── urls.py               # Project-wide URL routing
-│   │   ├── wsgi.py               # WSGI configuration
-│   │   └── admin.py              # Admin site configuration
-│   ├── db.sqlite3                # SQLite database file
-│   └── manage.py                 # Django management script
-├── README.md                     # Project documentation
-├── requirements.txt              # Project dependencies
+├── web-scraper/ # Main Django project directory
+│ ├── imdb_ratings/ # Main app for scraping and movie management
+│ │ ├── migrations/
+│ │ │ ├── init.py
+│ │ │ └── 0001_initial.py
+│ │ ├── templates/imdb_ratings/
+│ │ │ ├── movie_list.html
+│ │ │ └── scrape_form.html
+│ │ ├── static/
+│ │ │ ├── css/styles.css
+│ │ │ └── js/scripts.js
+│ │ ├── management/commands/
+│ │ │ ├── init.py
+│ │ │ └── clear_movies.py
+│ │ ├── init.py
+│ │ ├── admin.py
+│ │ ├── apps.py
+│ │ ├── models.py
+│ │ ├── scraper.py
+│ │ ├── serializer.py
+│ │ ├── tests.py
+│ │ ├── urls.py
+│ │ ├── views.py
+│ │ └── forms.py
+│ ├── scraper_site/
+│ │ ├── init.py
+│ │ ├── asgi.py
+│ │ ├── settings.py
+│ │ ├── urls.py
+│ │ ├── wsgi.py
+│ │ └── admin.py
+│ ├── db.sqlite3
+│ └── manage.py
+├── README.md
+├── requirements.txt
 └── project_details.txt
 
 ---
