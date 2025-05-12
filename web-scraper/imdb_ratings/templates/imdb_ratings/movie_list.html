@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Search</title>
+    <style>
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination a, .pagination span {
+            margin: 0 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            color: #007bff;
+        }
+        .pagination .current {
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Search</h1>
+    <form method="get" action="/movie-search/">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search movies...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results</h2>
+    {% if imdb_ratings_movie %}
+        <ul>
+            {% for movie in imdb_ratings_movie %}
+                <li>
+                    <strong>{{ movie.title }}</strong> ({{ movie.release_year }}) - IMDb Rating: {{ movie.imdb_rating }}
+                    <ul>
+                        <li>Directors: {{ movie.directors }}</li>
+                        <li>Cast: {{ movie.cast }}</li>
+                        <li>Plot: {{ movie.plot_summary }}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            {% if imdb_ratings_movie.has_previous %}
+                <a href="?q={{ query }}&page=1">First</a>
+                <a href="?q={{ query }}&page={{ imdb_ratings_movie.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            {% for page_num in imdb_ratings_movie.paginator.page_range %}
+                {% if page_num == imdb_ratings_movie.number %}
+                    <span class="current">Page {{ page_num }}</span>
+                {% else %}
+                    <a href="?q={{ query }}&page={{ page_num }}">{{ page_num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if imdb_ratings_movie.has_next %}
+                <a href="?q={{ query }}&page={{ imdb_ratings_movie.next_page_number }}">Next</a>
+                <a href="?q={{ query }}&page={{ imdb_ratings_movie.paginator.num_pages }}">Last</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>No movies found.</p>
+    {% endif %}
+</body>
+</html>

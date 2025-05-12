@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrape IMDb Movies</title>
+    <style>
+        /* Loader styles */
+        #loader {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Scrape IMDb Movies</h1>
+    <form id="scrapeForm" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Scrape Movies</button>
+    </form>
+
+    <!-- Loader -->
+    <div id="loader"></div>
+
+    <script>
+        // Show the loader when the form is submitted
+        document.getElementById('scrapeForm').addEventListener('submit', function() {
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
