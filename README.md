@@ -75,7 +75,6 @@ imdb-web-scraper/
 ### 1. Clone the repository
 
 `git clone https://github.com/pmaletia/imdb-web-scraper.git`
-`cd imdb-web-scraper/web-scraper`
 
 ### 2. Create a virtual environment
 `python -m venv env`
@@ -84,6 +83,7 @@ imdb-web-scraper/
 3. Install dependencies
 
 `pip install -r app_requirements.txt`
+`cd imdb-web-scraper/web-scraper`
 
 4. Run migrations
 `python manage.py makemigrations`
